@@ -44,7 +44,7 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
     var doBinaryOperation = function(symbol){
     	newNumber = false;
     	if(partialNumber.length > 0){
-    		tokens.push({type: 'number', value: parseInt(partialNumber)});
+    		tokens.push({type: 'number', value: parseFloat(partialNumber)});
     		partialNumber = '';
     	}
     	if(tokens.length === 0){
@@ -77,7 +77,7 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
         		if(tokens[i+1] !== 0){
         			noDivMultTokens.push({
 	        			type:'number',
-	        			value: (Math.floor(tokens[i-1].value / tokens[i+1].value))
+	        			value: (tokens[i-1].value / tokens[i+1].value)
 	        		});
 	        		i++;
         		} else {
@@ -114,10 +114,16 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
     	if(newNumber)
     		tokens = [];
         if((tokens.length === 0 && partialNumber.length === 0)|| newNumber) {
-            partialNumber = String(btn);
+            if (btn === '.')
+                partialNumber = '0.';
+            else
+                partialNumber = String(btn);
             newNumber = false;
         } else {
-            partialNumber += String(btn);
+            if(partialNumber.length === 0 && btn === '.')
+                partialNumber = '0.';
+            else
+                partialNumber += String(btn);
         }
 
         updateOutput();
@@ -145,7 +151,7 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
 
     $scope.equals = function(){
     	if(partialNumber.length > 0){
-    		tokens.push({type: 'number', value: parseInt(partialNumber)});
+    		tokens.push({type: 'number', value: parseFloat(partialNumber)});
     		partialNumber = '';
     	}
 
