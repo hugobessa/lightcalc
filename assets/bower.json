@@ -1,0 +1,24 @@
+{
+  "name": "lightcalc",
+  "version": "0.0.0",
+  "authors": [
+    "Hugo Bessa <hrba@cin.ufpe.br>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.4.0",
+    "bootstrap": "~3.3.4",
+    "angular-route": "~1.4.0",
+    "angular-show-errors": "~2.4.3",
+    "angular-messages": "~1.4.0"
+  }
+}
