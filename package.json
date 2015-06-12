@@ -27,7 +27,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "forever start app.js --prod"
   },
   "main": "app.js",
   "repository": {
