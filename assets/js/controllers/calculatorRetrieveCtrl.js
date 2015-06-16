@@ -1,8 +1,12 @@
-angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators', 'Operations', '$scope', '$routeParams', '$route', function(Calculators, Operations, $scope, $routeParams, $route){
+angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators', 'Operations', '$scope', '$routeParams', '$location', function(Calculators, Operations, $scope, $routeParams, $location){
 /* Controller handles calculations and binding*/
     var calculators = Calculators.get({name: $routeParams.name});
     calculators.$promise.then(function(data){
-        $scope.calculator = calculators[0];
+        if(calculators.length > 0){
+            $scope.calculator = calculators[0];
+        } else {
+            $location.path('/');
+        }
     });
     // Bound to the output display
     
@@ -191,7 +195,7 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
                     tokens.push({type: 'operator', value: operationTokens[i]});
                     break;
                 default:
-                    tokens.push({type: 'number', value: operationTokens[i]});
+                    tokens.push({type: 'number', value: parseFloat(operationTokens[i])});
             } 
         }
 
