@@ -11,13 +11,14 @@ before(function(done) {
       level: 'warn'
     },
     connections: {
-      localDiskDb: {
-        adapter: 'sails-disk'
+      testDiskDb: {
+        adapter: 'sails-disk',
+        filePath : '.tmp/sails.test.dat'
       }
     },
     models: {
       migrate: 'safe',
-      connection: 'localDiskDb'
+      connection: 'testDiskDb'
     },
     port: process.env.PORT || 1338,
     environment: 'test',
