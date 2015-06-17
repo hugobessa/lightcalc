@@ -12,19 +12,16 @@ angular.module('LightCalc').directive('isNameFree', ['Calculators', '$q', '$time
 
         var def = $q.defer();
 
-        $timeout(function() {
-          // Mock a delayed response
-          var calculators = Calculators.get({name: modelValue});
-          calculators.$promise.then(function(){
-            if (calculators.length === 0) {
-              // The username is available
-              def.resolve();
-            } else {
-              def.reject();
-            }
-          })
+        var calculators = Calculators.get({name: modelValue});
+        calculators.$promise.then(function(){
+          if (calculators.length === 0) {
+            // The username is available
+            def.resolve();
+          } else {
+            def.reject();
+          }
+        })
 
-        }, 2000);
 
         return def.promise;
       };

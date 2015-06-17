@@ -6,9 +6,12 @@ angular.module('LightCalc').controller('calculatorCreateCtrl', ['Calculators', '
 		$scope.$broadcast('show-errors-check-validity');
 
 		if ($scope.form.$valid) {
-			Calculators.save($scope.calculatorForm).$promise.then(function(data){
-				$location.path(data.name);
+			var calculator = Calculators.save($scope.calculatorForm);
+			calculator.$promise.then(function(data){
+				$location.path('/'+data.name);
 			});
+
+			return calculator;
 		}
 	}
 

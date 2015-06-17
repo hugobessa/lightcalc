@@ -159,10 +159,12 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
     		partialNumber = '';
     	}
 
-    	Operations.save({
-    		calculator: $scope.calculator.id,
-    		text: $scope.output,
-    	}).$promise.then(function(data){
+        var operation = Operations.save({
+            calculator: $scope.calculator.id,
+            text: $scope.output,
+        });
+
+    	operation.$promise.then(function(data){
     		tokens = [{type: 'number', value: calculate()}];
     		updateOutput();
     		newNumber = true;
@@ -173,6 +175,8 @@ angular.module('LightCalc').controller('calculatorRetrieveCtrl', ['Calculators',
     		newNumber = true;
     		throw "Não foi possível salvar a operação. Verifique sua conexão com a internet.";
     	});
+
+        return operation;
     }
 
     $scope.loadOperation = function(operation){
