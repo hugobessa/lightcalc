@@ -6,7 +6,7 @@
   "keywords": [],
   "engines": {
     "node": "0.12.4",
-    "npm": "2.11.1"    
+    "npm": "2.11.1"
   },
   "dependencies": {
     "ejs": "~0.8.4",
@@ -39,5 +39,14 @@
     "url": "git://github.com/hugo/lightcalc.git"
   },
   "author": "hugo",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17",
+    "supertest": "^1.0.1"
+  }
 }
