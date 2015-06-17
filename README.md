@@ -30,3 +30,8 @@ After mocha is installed run the command "mocha test/bootstrap.test.js test/unit
 To run the backend tests you have to install karma tests runner globally running "npm install karma -g" with the required permissions. 
 
 After karma is installed run the command "karma start" in the project root folder.
+
+
+## Demo version
+
+[http://lightcalc.herokuapp.com](http://lightcalc.herokuapp.com)
