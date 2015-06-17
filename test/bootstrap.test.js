@@ -19,7 +19,7 @@ before(function(done) {
       migrate: 'safe',
       connection: 'localDiskDb'
     },
-    port: process.env.PORT || 1337,
+    port: process.env.PORT || 1338,
     environment: 'test',
     csrf: false,
     hooks: {
@@ -32,7 +32,6 @@ before(function(done) {
     },
 
   }, function(err, server) {
-    debugger;
     sails = server;
     if (err) return done(err);
     // here you can load fixtures, etc.
