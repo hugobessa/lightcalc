@@ -10,7 +10,9 @@ In the application folder, run "npm install" with the required permissions.
 
 OBS.: in Ubuntu, you haave to run "sudo npm install", for example
 
-After npm install all the project dependencies, run "sails lift", and then the application will be running at http://localhost:1337.
+After npm install all the project dependencies, run "bower install" to download the frontend depencies.
+
+For last, run "sails lift", and then the application will be running at http://localhost:1337.
 
 
 ## Running tests
