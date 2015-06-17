@@ -14,6 +14,6 @@ if [ -f bin/run_bower_install ]; then
     echo "-----> Installing bower dependencies"
     chmod +x bin/run_bower_install
     bin/run_bower_install
-fi 
+fi
 
 echo "-----> Post-compile done"
